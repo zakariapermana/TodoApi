@@ -31,18 +31,18 @@ namespace TodoApi.Services
             _context.SaveChanges();
         }
 
-        TodoItem IDataAccessProvider.GetIncomingTodoRecord(string id)
+        List<TodoItem> IDataAccessProvider.GetIncomingTodoRecord()
         {
-            throw new NotImplementedException();
+            // using raw query to access the table where status != 'Done' and date >= now()
+            // return _context.todoItems.FromSqlRaw("SELECT * FROM public.todo_item").ToList();
+            // Console.WriteLine("SELECT * FROM \"todoItems\" where status!=\"Done\"");
+            return _context.todoItems.FromSqlRaw("SELECT * FROM \"todoItems\" where status!='Done' and date::date>=now()::date").ToList();
         }
 
         List<TodoItem> IDataAccessProvider.GetTodoRecords()
         {
             // get list record of todo
-            //return _context.todoItems.ToList();
-
-            // try to use raw query to access the table
-            return _context.todoItems.FromSqlRaw("SELECT * FROM public.todo_item").ToList();
+            return _context.todoItems.ToList();
         }
 
         TodoItem IDataAccessProvider.GetTodoSingleRecord(string id)
@@ -53,12 +53,16 @@ namespace TodoApi.Services
 
         void IDataAccessProvider.MarkDoneTodoRecord(string id)
         {
-            throw new NotImplementedException();
+            var data = _context.todoItems.FirstOrDefault(t => t.id == id);
+            data.status = "Done";
+            _context.todoItems.Update(data);
+            _context.SaveChanges();
         }
 
         void IDataAccessProvider.SetPercentTodoRecord(TodoItem todoItem)
         {
-            throw new NotImplementedException();
+            _context.todoItems.Update(todoItem);
+            _context.SaveChanges();
         }
 
         void IDataAccessProvider.UpdateTodoRecord(TodoItem todoItem)

@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "9457f96e-3040-4441-bc42-4aa113dda72e",
+		"name": "TodoApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"date\": \"2020-08-14 09:15:25.348342+00\",\r\n    \"title\": \"Task3\",\r\n    \"description\": \"Task3 Description\",\r\n    \"complete\": 50,\r\n    \"status\": \"Progress\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/todo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"todo"
+					]
+				},
+				"description": "create"
+			},
+			"response": []
+		},
+		{
+			"name": "index",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"1\",\r\n    \"date\": \"12345\",\r\n    \"title\": \"Tes\",\r\n    \"description\": \"Tes Description\",\r\n    \"complete\": 100,\r\n    \"status\": \"Progress\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/todo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"todo"
+					]
+				},
+				"description": "get"
+			},
+			"response": []
+		},
+		{
+			"name": "get",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"date\": \"20200814\",\r\n    \"title\": \"Live\",\r\n    \"description\": \"Live Description\",\r\n    \"complete\": 50,\r\n    \"status\": \"Progress\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/todo/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"todo",
+						"1"
+					]
+				},
+				"description": "detail"
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"id\": \"6309f1bb-6b74-4c58-8842-9ff2cd3564e5\",\r\n        \"date\": \"2020-08-11 09:15:25.348342+00\",\r\n        \"title\": \"Task1\",\r\n        \"description\": \"Task1 Description\",\r\n        \"complete\": 50,\r\n        \"status\": \"Progress\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/todo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"todo"
+					]
+				},
+				"description": "update"
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": \"62179528-ae24-465e-bfb2-36d1845023d9\",\r\n        \"date\": \"2020-08-14 09:15:25.348342+00\",\r\n        \"title\": \"Live\",\r\n        \"description\": \"Live Description\",\r\n        \"complete\": 50,\r\n        \"status\": \"Progress\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/todo/561b56a2-8530-443b-a6d1-060d900d15b7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"todo",
+						"561b56a2-8530-443b-a6d1-060d900d15b7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mark-done",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/api/todo/62179528-ae24-465e-bfb2-36d1845023d9/mark-done",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"todo",
+						"62179528-ae24-465e-bfb2-36d1845023d9",
+						"mark-done"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "percent-complete",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"complete\": 90\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/todo/62179528-ae24-465e-bfb2-36d1845023d9/percent",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"todo",
+						"62179528-ae24-465e-bfb2-36d1845023d9",
+						"percent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "incoming",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"1\",\r\n    \"date\": \"12345\",\r\n    \"title\": \"Tes\",\r\n    \"description\": \"Tes Description\",\r\n    \"complete\": 100,\r\n    \"status\": \"Progress\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/todo/incoming",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"todo",
+						"incoming"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

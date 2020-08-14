@@ -6,7 +6,7 @@ using TodoApi.Models;
 
 namespace TodoApi.Services
 {
-    interface IDataAccessProvider
+    public interface IDataAccessProvider
     {
         void AddTodoRecord(TodoItem todoItem);
         void UpdateTodoRecord(TodoItem todoItem);
@@ -14,7 +14,7 @@ namespace TodoApi.Services
         void SetPercentTodoRecord(TodoItem todoItem);
         void MarkDoneTodoRecord(string id);
         TodoItem GetTodoSingleRecord(string id);
-        TodoItem GetIncomingTodoRecord(string id);
+        List<TodoItem> GetIncomingTodoRecord();
         List<TodoItem> GetTodoRecords();
     }
 }
